@@ -1,0 +1,22 @@
+{{let
+pscan = (first(scan_dir(join "content" $0)))
+a = $pscan
+list=
+    (sort_on 
+        (first 
+            $pscan
+            (filter (scan_dir "content" 0) "neq .item_file \"index.md\"" )
+        )
+        "-priority" "title" "item_file"
+    )
+opath = (select $pscan $0 "" )
+}}
+
+{{if $list}}\
+    <div id="children">
+    {{for k v in $list}}\
+    <a href="/{{join $opath (stem $v.item_file )}}">{{first $v.title "TITLE MISSING"}}</a>
+    {{/for}}
+    </div>
+{{/if}}
+
