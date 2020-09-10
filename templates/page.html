@@ -6,25 +6,36 @@
 <head>
 
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">\
+
+    {{# Output the pages title or a default if it doesn't have one#}}
     <title>{{first .title "Siter Site Generator"}}</title>
 </head>
 <body>
 <div class="top_panel">
-    {{'child.ito' (full_stem .build.out_path)}}
+    {{# .menu is generated once in root_config and input here as a string #}}\
+    {{.menu}}
 <br><br>
+</div>
+<div class="side_menu">
+</div>
+{{#Breadcrumbs is the trail to the current page#}}\
 {{let bp = bread_crumbs .build.out_path}}\
-{{let blen = len $bp }}<a href="/">Home</a> \
+
+{{let blen = len $bp }}\
+<a href="/">Home</a> \
+{{# Only process breadcrumbs if they are longer than 2 elements#}}\
 {{if gt $blen 2}}\
+
+    {{#loop through the paths and output the links #}}
 	{{for k v in slice $bp 1 (sub $blen 1) }}\
 	/ <a href="/{{$v}}">{{base_name_sure $v}}</a>
 	{{/for}}\
-{{/if}}
-</div>
-<div class="side_menu">
-    {{.menu}}
-</div>
-{{if .title}}<h1>{{.title}}</h1>{{/if}}
+{{/if}}\
+
+{{if .title}}<h1>{{.title}}</h1>{{/if}}\
+
+{{#Output the content #}}
 {{$1}}
 </body>
 </html>

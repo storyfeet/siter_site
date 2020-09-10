@@ -18,6 +18,7 @@ Template magic is always wrapped in ```\{{}}``` and comments are wrapped in ```\
 {{# End the markdown so we can work with actual html #}}
 {{/md}}
 <pre><code>
+{{#load the file and make it html safe #}}
 {{html_esc (file "content/getting_started/a_content_file.md")}}
 </code></pre>
 
