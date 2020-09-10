@@ -1,4 +1,7 @@
-{{export title="Setup"}}{{@md}}
+{{export 
+title="Setup"
+in_menu=true
+}}{{@md}}
 
 To get started, install the site generator.  The easiest way to do this if you have rust installed is.
 

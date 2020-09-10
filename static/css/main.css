@@ -3,3 +3,8 @@
 .top_panel {
     background:#bbbbbb;
 }
+
+pre {
+    background:#bbbbbb;
+    padding-left:10px;
+}
