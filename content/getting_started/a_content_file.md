@@ -2,7 +2,7 @@
 {{export
 title = "A Content File"
 in_menu = true
-order = 2
+order = 3
 }}\
 {{#The next section will be treated as markdown , '@' makes any function work on the result of the block it starts#}}
 {{@md}}
